@@ -27,7 +27,7 @@ plot4 <- function() {
         plot(powerData$Time[firstLine:lastLine],as.numeric(as.character(powerData$Sub_metering_1[firstLine:lastLine])),type="l", xlab="", ylab="Energy sub metering", col="black")
         lines(powerData$Time[firstLine:lastLine],as.numeric(as.character(powerData$Sub_metering_2[firstLine:lastLine])), col="red")
         lines(powerData$Time[firstLine:lastLine],as.numeric(as.character(powerData$Sub_metering_3[firstLine:lastLine])), col="blue")
-        legend("topright", lty=1, col=c("black","red","blue"), legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))
+        legend("topright", lty=1, col=c("black","red","blue"), legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"), bty="n")
         plot(powerData$Time[firstLine:lastLine],as.numeric(as.character(powerData$Global_reactive_power[firstLine:lastLine])),type="l", xlab="datetime", ylab="Global_reactive_power")        
         
         png(filename="plot4.png")
@@ -38,7 +38,7 @@ plot4 <- function() {
         plot(powerData$Time[firstLine:lastLine],as.numeric(as.character(powerData$Sub_metering_1[firstLine:lastLine])),type="l", xlab="", ylab="Energy sub metering", col="black")
         lines(powerData$Time[firstLine:lastLine],as.numeric(as.character(powerData$Sub_metering_2[firstLine:lastLine])), col="red")
         lines(powerData$Time[firstLine:lastLine],as.numeric(as.character(powerData$Sub_metering_3[firstLine:lastLine])), col="blue")
-        legend("topright", lty=1, col=c("black","red","blue"), legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))
+        legend("topright", lty=1, col=c("black","red","blue"), legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"), bty="n")
         plot(powerData$Time[firstLine:lastLine],as.numeric(as.character(powerData$Global_reactive_power[firstLine:lastLine])),type="l", xlab="datetime", ylab="Global_reactive_power")        
         
         dev.off()
