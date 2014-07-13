@@ -43,5 +43,4 @@ plot4 <- function() {
         dev.off()
         
         
-        stopPoint <-0
 }
