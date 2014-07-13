@@ -11,21 +11,17 @@ plot1 <- function() {
                 unzip(projectZip)
         }
         ## read the files to data frame; it has a header and separates fileld with';'
-        powerData <- read.table(".\\household_power_consumption.txt", sep=";",header=TRUE)
-                
+        powerData <- read.table(".\\household_power_consumption.txt", sep=";",header=TRUE, na.strings ="?", colClasses=c("character","character","numeric","numeric","numeric","numeric","numeric","numeric","numeric"))
+        
         powerData$Time<-strptime(paste(powerData$Date, powerData$Time), "%d/%m/%Y %H:%M:%S")
         powerData$Date<-as.Date(powerData$Date,"%d/%m/%Y")
-        for(i in 1:7) {
-                sub("\\?", NA, powerData[,i+2])
-        }
+        
         firstLine <- match(as.Date("2007-02-01"), powerData$Date)
         lastLine <- match(as.Date("2007-02-03"), powerData$Date) - 1
-        hist(as.numeric(as.character(powerData$Global_active_power[firstLine:lastLine])), col="red", main="Global Active Power",xlab = "Global Active Power (kilowatts)")
+        hist(powerData$Global_active_power[firstLine:lastLine], col="red", main="Global Active Power",xlab = "Global Active Power (kilowatts)")
         
         png(filename="plot1.png")
-        hist(as.numeric(as.character(powerData$Global_active_power[firstLine:lastLine])), col="red", main="Global Active Power",xlab = "Global Active Power (kilowatts)")
+        hist(powerData$Global_active_power[firstLine:lastLine], col="red", main="Global Active Power",xlab = "Global Active Power (kilowatts)")
         dev.off()
         
-        
-        stopPoint <-0
 }
